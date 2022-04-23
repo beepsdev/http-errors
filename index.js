@@ -62,6 +62,30 @@ class Forbidden extends HttpError {
     }
 }
 
+class InvalidPassword extends HttpError {
+    constructor(subcode = false, message = "Invalid Password") {
+        super(402, message, 2);
+    }
+}
+
+class InvalidUsername extends HttpError {
+    constructor(subcode = false, message = "Invalid Username") {
+        super(402, message, 3);
+    }
+}
+
+class Invalid2factor extends HttpError {
+    constructor(subcode = false, message = "Invalid 2FA Code") {
+        super(402, message, 4);
+    }
+}
+
+class InvalidAccountDetails extends HttpError {
+    constructor(subcode = false, message = "Invalid Account Details") {
+        super(402, message, 1);
+    }
+}
+
 class NotFound extends HttpError {
     constructor(subcode = false, message = "Not Found") {
         super(404, message, subcode);
@@ -101,6 +125,11 @@ module.exports = {
     MethodNotAllowed,
     Conflict,
     SessionAlreadyStarted,
-    NotImplemented
+    NotImplemented,
+
+    InvalidAccountDetails,
+    InvalidPassword,
+    InvalidUsername,
+    Invalid2factor
 
 }
