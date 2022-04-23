@@ -50,6 +50,18 @@ class Unauthorized extends HttpError {
     }
 }
 
+class SessionInvalid extends HttpError {
+    constructor(subcode = false, message = "Provided session is invalid") {
+        super(401, message, 1);
+    }
+}
+
+class SessionExpired extends HttpError {
+    constructor(subcode = false, message = "Provided session has expired") {
+        super(401, message, 2);
+    }
+}
+
 class PaymentRequired extends HttpError {
     constructor(subcode = false, message = "Payment Required") {
         super(402, message, subcode);
@@ -117,9 +129,13 @@ class NotImplemented extends HttpError {
 }
 
 module.exports = {
+
     HttpError,
+
     BadRequest,
     Unauthorized,
+    SessionInvalid,
+    SessionExpired,
     PaymentRequired,
     Forbidden,
     NotFound,
