@@ -17,10 +17,26 @@ class HttpError extends Error {
         this.#subcode = subcode;
     }
 
+    get code(){
+        return `${this.#code}`;
+    }
+
+    get message(){
+        return this.#message;
+    }
+
+    get subcode(){
+        return this.#subcode;
+    }
+
+    get fullcode(){
+        return this.subcode ? `${this.code}-${this.subcode}` : `${this.code}`
+    }
+
     toJSON(){
         return {
-            code: this.#subcode ? `${this.#code}-${this.#subcode}` : `${this.#code}`,
-            message: this.#message
+            code: this.fullcode,
+            message: this.message
         }
     }
 
