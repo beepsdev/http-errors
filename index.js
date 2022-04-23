@@ -118,6 +118,7 @@ class NotImplemented extends HttpError {
 
 module.exports = {
     HttpError,
+    BadRequest,
     Unauthorized,
     PaymentRequired,
     Forbidden,
