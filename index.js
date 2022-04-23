@@ -6,11 +6,7 @@ class HttpError extends Error {
 
     constructor(code, message, subcode){
 
-        if(subcode){
-            super(`${code}-${subcode} ${message}`);
-        }else{
-            super(`${code} ${message}`)
-        }
+        super(message);
 
         this.#code = Number(code);
         this.#message = JSON.stringify(message);
